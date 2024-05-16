@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://unpkg.com/react@16.7.0/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@16.7.0/umd/react-dom.production.min.js"></script>
+</head>
+<body>
+    <div id="my-react-app">
+    </div>
+    
+    <script>
+        const react_app = document.getElementById("my-react-app");
+        let el = React.createElement("h1", {}, "Welcome to the world of React!");
+        ReactDOM.render(el, react_app);
+    </script>
+</body>
+</html>
