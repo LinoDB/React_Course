@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://unpkg.com/react@16.7.0/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16.7.0/umd/react-dom.development.js"></script>
+    <style>
+        #para-id {
+            color: green;
+        }
+
+        h2 {
+            color: red;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div id="my-react-app">
+    </div>
+    
+    <script>
+        const react_app = document.getElementById("my-react-app");
+        
+        let el = React.createElement(
+            "div", {id: "inner-div-id", key: "uniq-react-key-1"},   // "key" is only "visible" to React
+            React.createElement(
+                "h2", {id: "header-id"},
+                "Welcome to the world of React!"
+            )
+        );
+        
+        let another_el = React.createElement(
+            "p", {id: "para-id", key: "uniq-react-key-2"},
+            "React seems rather tedious to work with."
+        );
+        
+        let element_list = [el, another_el];
+
+        let outer_div_el = React.createElement(
+            "div", {id: "outer-div-id"},
+            element_list
+        );
+
+        ReactDOM.render(outer_div_el, react_app);
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://unpkg.com/react@16.7.0/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16.7.0/umd/react-dom.development.js"></script>
+    <style>
+        .my-fruits {
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div id="my-react-app">
+    </div>
+    
+    <script>
+        const react_app = document.getElementById("my-react-app");
+        
+        let el = React.createElement(
+            "div", {key: "el-key"},
+            "Some of my favourite fruits"
+        );
+        
+        let fr_el1 = React.createElement("li", {key: "O-key"}, "Orange");
+        let fr_el2 = React.createElement("li", {key: "A-key"}, "Apple");
+        let fr_el3 = React.createElement("li", {key: "B-key"}, "Banana");
+
+        const element_list = [el, fr_el1, fr_el2, fr_el3];
+
+        let list_el = React.createElement(
+            "ol", {className: "my-fruits"}, // "className", because "class" is a reserved key in JS
+            element_list
+        );
+
+        ReactDOM.render(list_el, react_app);
+    </script>
+</body>
+</html>

@@ -7,8 +7,8 @@
         {
             "type": "chrome",
             "request": "launch",
-            "name": "Open FirstReact_Production.html",
-            "file": "/usr/local/google/home/linod/Documents/React/StaticHTML/FirstReact_Production.html"
+            "name": "Open Lists.html",
+            "file": "/usr/local/google/home/linod/Documents/React/CreatingElements/Lists/Lists.html"
         }
     ]
 }
