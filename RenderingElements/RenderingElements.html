@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://unpkg.com/react@16.7.0/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16.7.0/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+    <style>
+        .my-fruit {
+            color: red;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div id="my-react-app">
+    </div>
+    
+    <script type="text/babel">
+        const orange_str = "Orange";
+        const apple_str = "Apple";
+        const banana_str = "Banana";
+
+        const fruit_img = "img/fruits.jpg";
+        const image_el = (<img src={fruit_img}/>);
+        const items = ["Jackfruit", "Mango", "Raspberry", "Grape", "Peach"];
+
+        function on_tick() {
+            const item = items[Math.floor(Math.random() * items.length)];
+
+            const fruit_list = (    // all React elements are immutable (have to be re-created with each change)
+                <div>
+                    <div key="el-key">Some of my favourite fruits</div>
+                    <ul>
+                        <li key="O-key">{orange_str}</li>
+                        <li key="A-key">{apple_str}</li>
+                        <li key="B-key">{banana_str}</li>
+                        {/* although the entire element is added here, only the updated (changed) elements will get updated int the actual DOM */}
+                        <li key="N-key" className="my-fruit">{item}</li>
+                    </ul>
+                    {image_el}
+                </div>
+            );
+
+            ReactDOM.render(fruit_list, document.getElementById("my-react-app"));
+        }
+        setInterval(on_tick, 2000);
+    </script>
+</body>
+</html>

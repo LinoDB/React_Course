@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://unpkg.com/react@16.7.0/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16.7.0/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+    <style>
+        .my-time {
+            color: red;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div id="my-react-app">
+    </div>
+    
+    <script type="text/babel">
+        const orange_str = "Orange";
+        const apple_str = "Apple";
+        const banana_str = "Banana";
+
+        const fruit_img = "img/fruits.jpg";
+
+        function on_tick() {
+            const image_el = (
+                <div>
+                    {/* Only the time is re-rendered by React, nothing else. */}
+                    Current time: {new Date().toLocaleTimeString()}
+                    <img src={fruit_img}/>
+                </div>
+            );
+
+            const fruit_list = (    // all React elements are immutable (have to be re-created with each change)
+                <div>
+                    <div key="el-key">Some of my favourite fruits</div>
+                    <ul>
+                        <li key="O-key">{orange_str}</li>
+                        <li key="A-key">{apple_str}</li>
+                        <li key="B-key">{banana_str}</li>
+                    </ul>
+                    {image_el}
+                </div>
+            );
+
+            ReactDOM.render(fruit_list, document.getElementById("my-react-app"));
+        }
+        setInterval(on_tick, 1000);
+    </script>
+</body>
+</html>
